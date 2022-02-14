@@ -50,7 +50,149 @@
 </section>
 <section id="destructuring-operator" class="sub-section">
   <h1>Destructuring Operator</h1>
+  <p>
+    <strong>Syntax: </strong>
+    <code class="inline-code">const [var1, var2, var3, ..., varN] = array</code>
+    for arrays and
+    <code class="inline-code"
+      >const &#123; var1, var2, var3, ..., varN &#125; = object</code
+    >
+    for objects.
+  </p>
+
+  <p>
+    <strong>Usage: </strong>
+    The destructuring operator is quite opposite to the spread operator. Instead
+    of expanding the whole content of an array/object, it will 'pick' some
+    values in that array/object and assign them to individual variables. For
+    example:
+  </p>
+  <app-code-block [code]="destructuringOperatorFirstExample"></app-code-block>
+
+  <p>
+    When working with arrays, the destructuring operator will be useful when we
+    want to pick the values at some certain positions that we already know
+    beforehand. For example:
+  </p>
+  <app-code-block [code]="destructuringOperatorArray"></app-code-block>
+
+  <p>
+    You might not see the real power of the destructuring operator from the
+    example with array above since it is more widely used with objects. This
+    operator will give us an incredibly quick way to access the values of
+    individual properties of an object. The below example demonstrates how
+    destructuring operator is used to avoid writing tedious and duplicated code:
+  </p>
+  <app-code-block [code]="destructuringOperatorObject"></app-code-block>
+
+  <p>
+    Also, destructuring operator gives us a way to selectively choose/remove a
+    property from a given object. For example, in the below script, we select
+    the value of the <code class="inline-code">year</code> property and assign
+    the rest to the <code class="inline-code">theRest</code> object. In other
+    words, we have removed the <code class="inline-code">year</code> property
+    from the original object!
+  </p>
+  <app-code-block [code]="destructuringOperatorPickingValue"></app-code-block>
+
+  <p>
+    Finally, we can also leverage the destructuring operator to shorten the
+    amount of code we need to write to create a function. For example, the below
+    function takes in an object of type
+    <code class="inline-code">TonnageValue</code> and performs some calculation
+    with it. There are 3 different ways to implement this function:
+  </p>
+  <app-code-block
+    [code]="destructuringOperatorWritingFunction"
+  ></app-code-block>
 </section>
 <section id="shorthand-syntax" class="sub-section">
   <h1>Shorthand Syntax</h1>
+  <p>
+    Apart from the spread and destructuring operators, Javascript ES6+ also
+    provide some more useful syntax that can help reduce the amount of code that
+    we have to write and make it a lot more readable.
+  </p>
+
+  <h2>1. Ternary Operator</h2>
+  <p>
+    <strong>Syntax: </strong>
+    <code class="inline-code"
+      >[conditional_statement] : [value_if_true] ? [value_if_false]</code
+    >
+  </p>
+  <p>
+    <strong>Usage: </strong>
+    The ternary operator is used to return a value base on a particular
+    condition. Its main purpose is to replace simple
+    <code class="inline-code">if...else...</code> statements and thus reduce the
+    amount of code written. For example:
+  </p>
+
+  <app-code-block [code]="ternaryOperatorExample"></app-code-block>
+
+  <h2>2. "OR" operator</h2>
+  <p>
+    <strong>Syntax: </strong>
+    <code class="inline-code">
+      [variable_x] || [value_to_return_if_x_is_falsy]</code
+    >
+  </p>
+  <p>
+    In some situations, we might need to check if a certain variable has falsy
+    value (<code class="inline-code">null, NaN, 0, '', undefined</code>) to
+    decide if we should use it or another default value.
+  </p>
+
+  <p>
+    In this case, we can use the ternary operator mentioned in the previous
+    section to shorten the code. However, it can be shortened even more if we
+    use the OR operator. Like this:
+  </p>
+
+  <app-code-block [code]="orOperatorExample"></app-code-block>
+
+  <h2>3. Null-ish Coalescing</h2>
+  <p>
+    One drawback of the logical OR operator is that it will return the value to
+    the right of the operator whenever the value to the left is falsy. However,
+    sometimes we might consider <code class="inline-code">''</code> or
+    <code class="inline-code">0</code> as accepted values (e.g. tonnage of 0 is
+    still a valid number). In those situation, the null-ish coalescing syntax
+    will be useful. It will only return the value to the right if the left value
+    is either <code class="inline-code">null</code> or
+    <code class="inline-code">undefined</code>. For example:
+  </p>
+
+  <app-code-block [code]="nullishCoalescingExample"></app-code-block>
+
+  <h2>4. Optional chaining</h2>
+  <p>
+    When working with an object, sometimes we will need to check if it has a
+    certain property or method. If yes, we proceed with using that property or
+    method, otherwise we do something else. This can be easily done with an
+    <code class="inline-code">if... else...</code> statement to first check for
+    the existence of the property/method and then perform some actions
+    accordingly:
+  </p>
+
+  <app-code-block [code]="chainingOperatorNaiveExample"></app-code-block>
+
+  <p>
+    However, if the object is deeply nested, using
+    <code class="inline-code">if...else...</code> statements will result in a
+    very big chunk of code even if we only want to perform some simple action:
+  </p>
+
+  <app-code-block [code]="chainOperatorProblemExample"></app-code-block>
+
+  <p>
+    To tackle this problem , we can use the optional chaining syntax. This
+    syntax will first check if a property/method exist. If yes, it will move
+    continue down the chain, otherwise it will return
+    <code class="inline-code">undefined</code> immediately without throwing any
+    error. For example:
+  </p>
+
+  <app-code-block [code]="chainOperatorFixProblem"></app-code-block>
 </section>

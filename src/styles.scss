@@ -26,11 +26,16 @@ body {
 .sub-section {
   p {
     font-size: 1.2em;
+    line-height: 2em;
   }
 
   h1 {
     font-size: 2em;
     margin-top: 1em;
     margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 1.2em;
   }
 }
