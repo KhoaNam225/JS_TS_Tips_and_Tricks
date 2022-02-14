@@ -57,28 +57,28 @@ export class AppComponent {
         },
       ],
     },
-    {
-      title: 'Object Methods',
-      route: 'object-methods',
-      subPages: [
-        {
-          title: 'Object.keys()',
-          route: 'object-keys',
-        },
-        {
-          title: 'Object.values()',
-          route: 'object-values',
-        },
-        {
-          title: 'Object.entries()',
-          route: 'object-entries',
-        },
-        {
-          title: 'Object.assign()',
-          route: 'object-assign',
-        },
-      ],
-    },
+    // {
+    //   title: 'Object Methods',
+    //   route: 'object-methods',
+    //   subPages: [
+    //     {
+    //       title: 'Object.keys()',
+    //       route: 'object-keys',
+    //     },
+    //     {
+    //       title: 'Object.values()',
+    //       route: 'object-values',
+    //     },
+    //     {
+    //       title: 'Object.entries()',
+    //       route: 'object-entries',
+    //     },
+    //     {
+    //       title: 'Object.assign()',
+    //       route: 'object-assign',
+    //     },
+    //   ],
+    // },
     {
       title: 'Miscellaneous',
       route: 'miscellaneous',
@@ -89,15 +89,15 @@ export class AppComponent {
         },
       ],
     },
-    {
-      title: 'Lodash',
-      route: 'lodash',
-      subPages: [
-        {
-          title: '_.cloneDeep()',
-          route: 'lodash-clone-deep',
-        },
-      ],
-    },
+    // {
+    //   title: 'Lodash',
+    //   route: 'lodash',
+    //   subPages: [
+    //     {
+    //       title: '_.cloneDeep()',
+    //       route: 'lodash-clone-deep',
+    //     },
+    //   ],
+    // },
   ];
 }
