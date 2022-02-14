@@ -1,6 +1,56 @@
-<section id="spread-operator">
+<section id="spread-operator" class="sub-section">
   <h1>Spread Operator</h1>
+  <p>
+    <strong>Syntax: </strong>
+    <code class="inline-code">...[variable_name]</code>
+  </p>
+  <p>
+    <strong>Usage: </strong>
+    The spread operator is used to expand an iterable (a string, object or an
+    array). It provides a handy way to "spread" the content of that iterable to
+    be used in a list of some kind.
+  </p>
+  <p>It is usually used to create a copy of an array or object. For example:</p>
+  <app-code-block [code]="spreadOperatorCodeArray"></app-code-block>
+
+  <p>
+    <strong>Useful use cases:</strong> The spread operator is particularly
+    useful when you want to create a copy of an array/object while avoiding some
+    unexpected errors related to different variables having the same reference
+    to the same array/object.
+  </p>
+
+  <p>
+    For example, consider the below script where we accidentally modify the
+    content of <code class="inline-code">arrayA</code> by changing
+    <code class="inline-code">arrayB</code>:
+  </p>
+  <app-code-block [code]="spreadOperatorUseCaseSideEffect"></app-code-block>
+
+  <p>
+    To avoid this unwanted side effect, we can use different methods (e.g. using
+    <code class="inline-code">.concat()</code>,
+    <code class="inline-code">.slice()</code>, spread operator):
+  </p>
+  <app-code-block
+    [code]="spreadOperatorUseCaseFixingSideEffect"
+  ></app-code-block>
+
+  <p>
+    In terms of working objects, spread operator is also very useful if we want
+    to create deep copies of an object. For example:
+  </p>
+  <app-code-block [code]="spreadOperatorObjectUseCase"></app-code-block>
+
+  <p>
+    Another useful use case of the spread operator is when we want to
+    concatenate many arrays/objects together. For example:
+  </p>
+  <app-code-block [code]="spreadOperatorConcat"></app-code-block>
 </section>
-<section id="destructuring-operator">
+<section id="destructuring-operator" class="sub-section">
   <h1>Destructuring Operator</h1>
+</section>
+<section id="shorthand-syntax" class="sub-section">
+  <h1>Shorthand Syntax</h1>
 </section>
