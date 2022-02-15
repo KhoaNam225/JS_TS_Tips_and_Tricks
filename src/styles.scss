@@ -7,7 +7,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .inline-code {
@@ -37,5 +37,13 @@ body {
 
   h2 {
     font-size: 1.2em;
+  }
+}
+
+figure {
+  width: 60%;
+
+  figcaption {
+    text-align: center;
   }
 }

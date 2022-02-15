@@ -18,4 +18,139 @@
       >[array-variable].[array-method-name]([callback])</code
     >
   </p>
+
+  <figure>
+    <img
+      src="https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/simplify-map-reduce-and-filter-in-typescript/Images/map_filter_reduce.png"
+    />
+    <figcaption>
+      Visual explanation for some widely used array methods. Source:
+      https://www.c-sharpcorner.com/article/simplify-map-reduce-and-filter-in-typescript
+    </figcaption>
+  </figure>
+</section>
+<section id="array-map" class="sub-section">
+  <h1>.map() function</h1>
+  <p>
+    <strong>Usage: </strong> .map() function is used when you want to perform a
+    certain operation on each item of an array and get an output value from that
+    operation. It accepts a callback as an argument and this callback must
+    return a value. After performing the operation on all items, it will return
+    a new array containing the results when applying the callback on each item.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="mapFunctionExample"></app-code-block>
+
+  <p>
+    In the above example, we passed in a function that will take in a number,
+    double it and return the result. The resulted array will contain the values
+    of the original array multiply by 2.
+  </p>
+
+  <p>
+    Also, in practice, <code class="inline-cod">.map()</code> and other array
+    methods are usually used along with arrow functions to make the code shorter
+    and cleaner. Therefore, the example can be re-written as below:
+  </p>
+
+  <app-code-block [code]="mapFunctionArrowCallback"></app-code-block>
+</section>
+
+<section id="array-foreach" class="sub-section">
+  <h1>.forEach() function</h1>
+  <p>
+    <strong>Usage: </strong> Same with <code class="inline-code">.map()</code>,
+    <code class="inline-code">.forEach()</code> is used when you want to iterate
+    through an array and perform some certain operation on each of its item.
+    However, unlike <code class="inline-code">.map()</code>,
+    <code class="inline-code">.forEach()</code> does not return any values so it
+    does not require the callback to return anything. This will be useful when
+    you just want to manipulate the existing array instead of creating a new
+    one.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="forEachFunctionExample"></app-code-block>
+</section>
+
+<section id="array-filter" class="sub-section">
+  <h1>.filter() function</h1>
+  <p>
+    <strong>Usage: </strong> <code class="inline-code">.filter()</code> is used
+    when you want to filter the items of an array base on some conditions. It
+    will accept a callback that returns either falsy or truthy values. The
+    callback will then be executed for each of the items, if the return value is
+    falsy (<code class="inline-code">null, undefined, '', 0</code>), the item
+    will not be included in the new array.
+  </p>
+
+  <p>
+    Also, <code class="inline-code">.filter()</code> won't modify the original
+    array, the items that satisfy the condition will be included in a new array.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="filterFunctionExample"></app-code-block>
+</section>
+
+<section id="array-find" class="sub-section">
+  <h1>.find() function</h1>
+  <p>
+    <strong>Usage: </strong> <code class="inline-code">.find()</code> is used
+    when you want to search for an item inside an array base on some conditions.
+    It will accept a callback that returns either falsy or truthy values. That
+    callback will then be executed on each item for the array from left to
+    right, and will return the first item that satisfy the condition. If there
+    are no items that can satisfy the condition,
+    <code class="inline-code">.find()</code> will return
+    <code class="inline-code">undefined</code>
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="findFunctionExample"></app-code-block>
+</section>
+
+<section id="array-find-index" class="sub-section">
+  <h1>.findIndex() function</h1>
+  <p>
+    <strong>Usage: </strong> Similar to
+    <code class="inline-code">.find()</code>,
+    <code class="inline-code">.findIndex()</code> is also used to search for an
+    item inside an array base on some conditions. But instead of returning the
+    item itself, <code class="inline-code">.findIndex()</code> will return the
+    position (or index) of that item in the array. It will accept a callback
+    that returns either falsy or truthy values. That callback will then be
+    executed on each item for the array from left to right, and will return the
+    positon of first item that satisfy the condition. If there are no items that
+    can satisfy the condition,
+    <code class="inline-code">.findIndex()</code> will return
+    <code class="inline-code">-1</code>.
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="findIndexFunctionExample"></app-code-block>
+</section>
+
+<section id="array-reduce" class="sub-section">
+  <h1>.reduce() function</h1>
+  <p>
+    <strong>Usage: </strong> Unlike other array methods,
+    <code class="inline-code">.reduce()</code> does not return an array, it
+    returns a single value instead. In other words, it "reduces" the array into
+    one single value.
+  </p>
+
+  <p>
+    <code class="inline-code">.reduce()</code> does this by taking 2 arguments:
+    A callback and an initial value. The callback must return a value when
+    executed on each item of the array. That value will then be used in the same
+    callback when it is executed on the next item.
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="reduceFunctionExample"></app-code-block>
 </section>

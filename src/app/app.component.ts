@@ -49,11 +49,15 @@ export class AppComponent {
         },
         {
           title: '.find()',
-          route: 'array-find()',
+          route: 'array-find',
+        },
+        {
+          title: '.findIndex()',
+          route: 'array-find-index',
         },
         {
           title: '.reduce()',
-          route: 'array-reduce()',
+          route: 'array-reduce',
         },
       ],
     },
