@@ -1,1 +1,74 @@
-<p>object-methods works!</p>
+<section class="sub-section">
+  <p>
+    Ojbect refers to a mapping between different key-value pairs. When talking
+    about objects, we often refer to a pair of curly braces that wraps around
+    some key-value pairs, like this:
+  </p>
+
+  <app-code-block [code]="objectOverview"></app-code-block>
+
+  <p>
+    However, array and string are also special types of object, since they also
+    contain mapping between key-value pairs (with key being the index number).
+  </p>
+
+  <app-code-block [code]="objectArrayStringOverview"></app-code-block>
+
+  <p>
+    Object methods refer to some special methods that can be applied on an
+    object to perform some certain operations. These operations could be:
+    getting all the keys of an object, getting all the values, getting all
+    key-value pairs, etc.
+  </p>
+</section>
+
+<section id="object-keys" class="sub-section">
+  <h1>Object.keys()</h1>
+  <p>
+    <strong>Usage: </strong>
+    <code class="inline-code">Object.keys()</code> function is used to get all
+    the keys of an object in the form of an array of string.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="objectKeysExample"></app-code-block>
+</section>
+
+<section id="object-values" class="sub-section">
+  <h1>Object.values()</h1>
+  <p>
+    <strong>Usage: </strong> <code class="inline-code">Object.values()</code> is
+    used to return all values within an object in a form of an array.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="objectValuesExample"></app-code-block>
+</section>
+
+<section id="object-entries" class="sub-section">
+  <h1>Object.entries()</h1>
+  <p>
+    <strong>Usage: </strong>
+    <code class="inline-code">Object.entries()</code> is used to return all
+    key-value pairs within an object. Each pair will be in the form of an array,
+    the first item of the array is the key, and the second one is the
+    corresponding value of that key.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="objectEntriesExample"></app-code-block>
+</section>
+
+<section id="object-assign" class="sub-section">
+  <h1>Object.assign()</h1>
+  <p>
+    <strong>Usage: </strong>
+    <code class="inline-code">Object.assign()</code> is used to copy the content
+    of an object to another object. If the 2 objects have some same keys, the
+    values of those keys in the target object will be overwritten by the
+    corresponding values in the source object.
+  </p>
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="objectAssignExample"></app-code-block>
+</section>
