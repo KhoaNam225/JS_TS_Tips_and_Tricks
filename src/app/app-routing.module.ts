@@ -10,6 +10,14 @@ const routes: Routes = [
         (module) => module.ES6SyntaxModule
       ),
   },
+  {
+    path: 'array-methods',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./array-methods/array-methods.module').then(
+        (module) => module.ArrayMethodsModule
+      ),
+  },
 ];
 
 @NgModule({
