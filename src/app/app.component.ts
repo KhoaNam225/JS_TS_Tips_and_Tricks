@@ -61,38 +61,38 @@ export class AppComponent {
         },
       ],
     },
-    // {
-    //   title: 'Object Methods',
-    //   route: 'object-methods',
-    //   subPages: [
-    //     {
-    //       title: 'Object.keys()',
-    //       route: 'object-keys',
-    //     },
-    //     {
-    //       title: 'Object.values()',
-    //       route: 'object-values',
-    //     },
-    //     {
-    //       title: 'Object.entries()',
-    //       route: 'object-entries',
-    //     },
-    //     {
-    //       title: 'Object.assign()',
-    //       route: 'object-assign',
-    //     },
-    //   ],
-    // },
     {
-      title: 'Miscellaneous',
-      route: 'miscellaneous',
+      title: 'Object Methods',
+      route: 'object-methods',
       subPages: [
         {
-          title: 'Guard clauses',
-          route: 'misc-guard-clauses',
+          title: 'Object.keys()',
+          route: 'object-keys',
+        },
+        {
+          title: 'Object.values()',
+          route: 'object-values',
+        },
+        {
+          title: 'Object.entries()',
+          route: 'object-entries',
+        },
+        {
+          title: 'Object.assign()',
+          route: 'object-assign',
         },
       ],
     },
+    // {
+    //   title: 'Miscellaneous',
+    //   route: 'miscellaneous',
+    //   subPages: [
+    //     {
+    //       title: 'Guard clauses',
+    //       route: 'misc-guard-clauses',
+    //     },
+    //   ],
+    // },
     // {
     //   title: 'Lodash',
     //   route: 'lodash',

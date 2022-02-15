@@ -18,6 +18,14 @@ const routes: Routes = [
         (module) => module.ArrayMethodsModule
       ),
   },
+  {
+    path: 'object-methods',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./object-methods/object-methods.module').then(
+        (module) => module.ObjectMethodsModule
+      ),
+  },
 ];
 
 @NgModule({
