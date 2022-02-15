@@ -47,3 +47,7 @@ figure {
     text-align: center;
   }
 }
+
+.mat-drawer-inner-container::-webkit-scrollbar {
+  display: none;
+}
