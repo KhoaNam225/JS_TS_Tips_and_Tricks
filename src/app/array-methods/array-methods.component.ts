@@ -130,6 +130,18 @@ export class ArrayMethodsComponent implements OnInit {
   // [1, 2, 2, 3, 3, 3]
   `
 
+  someFunctionExample: string = `
+  const originalArray = [1, 2, 3, 4, 5]
+  const hasEvenNumbers = originalArray.some(v => v % 2 === 0)   // true
+  const hasMultipleOfSix = originalArray.some(v => v % 6 === 0) // false
+  `
+
+  everyFunctionExample: string = `
+  const originalArray = [1, 2, 3, 4, 5]
+  const isAllNumbers = originalArray.every(v => typeof v === 'number')   // true
+  const isAllEven = originalArray.every(v => v % 2 === 0)                // false
+  `
+
 
   constructor() {}
 
