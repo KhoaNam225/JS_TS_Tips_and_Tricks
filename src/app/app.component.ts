@@ -29,6 +29,10 @@ export class AppComponent {
           title: 'Shorthand Syntax',
           route: 'shorthand-syntax',
         },
+        {
+          title: 'Arrow Functions',
+          route: 'arrow-functions',
+        },
       ],
     },
     {
