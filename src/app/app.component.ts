@@ -40,6 +40,10 @@ export class AppComponent {
       route: 'array-methods',
       subPages: [
         {
+          title: 'Common Themes',
+          route: 'common-themes',
+        },
+        {
           title: '.map()',
           route: 'array-map',
         },
