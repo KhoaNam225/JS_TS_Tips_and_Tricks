@@ -29,12 +29,20 @@ export class AppComponent {
           title: 'Shorthand Syntax',
           route: 'shorthand-syntax',
         },
+        {
+          title: 'Arrow Functions',
+          route: 'arrow-functions',
+        },
       ],
     },
     {
       title: 'Array Methods',
       route: 'array-methods',
       subPages: [
+        {
+          title: 'Common Themes',
+          route: 'common-themes',
+        },
         {
           title: '.map()',
           route: 'array-map',

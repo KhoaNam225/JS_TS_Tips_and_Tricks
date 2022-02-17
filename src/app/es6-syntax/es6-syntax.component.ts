@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ES6SyntaxComponent implements OnInit {
   spreadOperatorCodeArray: string = `
   const originalArray = [1, 2, 3, 4]
-  
+
   const copiedArray = [...originalArray]
 
   console.log(originalArray)  // This will give: [1, 2, 3, 4]
@@ -22,95 +22,75 @@ export class ES6SyntaxComponent implements OnInit {
   }
 
   const copiedObject = { ...originalObject }
-  
+
   console.log(originalObject)  // This will give: { year: 2022, month: 1 }
   console.log(copiedObject)  // This will also give: { year: 2022, month: 1 }
   `;
 
-  spreadOperatorUseCaseSideEffect: string = `
-  const arrayA = [1, 2, 3, 4]
-  const arrayB = arrayA
+  spreadOperatorUseCaseArrayClone: string = `
+  const originalArray = [1, "hello", true, [5, 6, 7], {prop: 100}]
+  const clonedArray = [...originalArray]
 
-  console.log(arrayB)  // This will give [1, 2, 3, 4]
-  
-  arrayB[0] = 10
-  console.log(arrayB)  // This will give [10, 2, 3, 4]
-  console.log(arrayA)  // This will also give [10, 2, 3, 4]! OUCH!!
+  console.log(clonedArray)  // This will give [1, "hello", true, [5, 6, 7], {prop: 100}]
+
+  originalArray[0] = 7
+  console.log(originalArray[0], clonedArray[0])  // This will give 7 1
+
+  originalArray[4].prop = 200
+  console.log(originalArray[4], clonedArray[4])  // This will give {prop: 200} {prop: 200}
   `;
 
-  spreadOperatorUseCaseFixingSideEffect: string = `
-  const arrayA = [1, 2, 3, 4]
+  spreadOperatorUseCasePopulatingArrayLiterals: string = `
+  const template = [3, 4, 5]
 
-  // concat() with an empty array will create a copy of the original array
-  const concatArray = arrayA.concat([])  
-  
-  // slice() will also create a copy of the original array
-  const slicedArray = arrayA.slice(0, arrayA.length)  
-  
-  const spreadArray = [...arrayA] // Same for spread operator, but a lot more readable!!
-  
-  concatArray[0] = 10
-  slicedArray[0] = 20
-  spreadArray[0] = 30
-  
-  console.log(arrayA)  // This will still give [1, 2, 3, 4] ==> Unmodified!`;
+  const myLiteral1 = [1, 2, ...template]  // [1, 2, 3, 4, 5]
+  const myLiteral2 = [2, ...template, 6]  // [2, 3, 4, 5, 6]
+  const myLiteral3 = [...template, 6, 7]  // [3, 4, 5, 6, 7]
 
-  spreadOperatorObjectUseCase: string = `
-  const objectA = { 
-    year: 2022,
-    month: 1,
-    day: 31
-  }
-  
-  // This is just a shallowed copy! NOT SAFE!
-  const shallowCopied = objectA
+  // If spreading is not used
+  const myLiteral4 = [2, template, 6]     // [2, [3, 4, 5], 6]
+  `
 
-  
-  // This creates a deep copy but TOOO SLOOOOOW!
-  const objectB = {}
-  objectB.year = objectA.year
-  objectB.month = objectA.month
-  objectB.day = objectA.day
+  spreadOperatorUseCasePopulatingObjectLiterals: string = `
+  const template1 = {a: 1, b: 2, c: 3}
+  const template2 = {b: 20, c: 30, d: 40}
 
+  const myLiteral1 = {a: 100, ...template1}                       // {a: 1, b: 2, c: 3}
+  const myLiteral2 = {a: 100, ...template1, ...template2, c: 300} // {a: 1, b: 20, c: 300, d: 40}
+  const myLiteral3 = {...template2, c: 300, d: 400}               // {b: 20, c: 300, d: 400}
+  `
 
-  // This is also a deep copy! SO QUICK!
-  const objectC = { ...objectA }
-
-
-  // This is also a deep copy of objectA
-  // but with the 'year' value changed to '2021' and the rest will stay the same
-  const objectD = {
-    ...objectA,
-    year: 2021
+  spreadOperatorUseCaseSpreadArguments: string = `
+  function concatThreeStrings(arg1, arg2, arg3) {
+    return arg1 + arg2 + arg3
   }
 
-  console.log(objectA)  // This will give { year: 2022, month: 1, day: 31 }
-  console.log(objectB)  // This will also give { year: 2022, month: 1, day: 31 }
-  console.log(objectC)  // This will give { year: 2022, month: 1, day: 31 }
-  console.log(objectD)  // This will give { year: 2021, month: 1, day: 31 }
-  `;
+  const myArgs1 = ["a", "b", "c"]
+  concatThreeStrings(...myArgs)         // "abc"
 
-  spreadOperatorConcat: string = `
-  const arrayA = [1, 2, 3, 4]
-  const arrayB = [5, 6, 7, 8]
+  const myArgs2 = ["a", "b"]
+  concatThreeStrings(...myArgs, "c")    // "abc"
 
-  const concatArray = [...arrayA, ...arrayB]
-  console.log(concatArray)  // [1, 2, 3, 4, 5, 6, 7, 8]
+  const myArgs3 = {arg3: "c", arg1: "a", arg2: "b"}
 
-  const objA = {
-    year: 2021,
-    month: 1
+  // NOTE: This does NOT work!
+  concatThreeStrings(...myArgs3)        // Uncaught TypeError: Found non-callable @@iterator
+
+  function concatThreeStringsFromObject(input) {
+  const { arg1, arg2, arg3 } = input
+    return arg1 + arg2 + arg3
   }
 
-  const objB = {
-    asset: 'AC',
-    product: 'L'
+  concatThreeStringsFromObject(myArgs3) // "abc"
+  `
+
+  spreadOperatorUseCaseCollateArguments: string = `
+  function sum(...arguments) {
+    return arguments.reduce((acc, value) => acc + value)
   }
 
-  const concatObj = { ...objA, ...objB }
-
-  console.log(concatObj)  // { year: 2021, month: 1, asset: 'AC', product: 'L' }
-  `;
+  sum(10, 20, 30, 40) // 100
+  `
 
   destructuringOperatorFirstExample: string = `
   const arrayA = [1, 2, 3]
@@ -119,10 +99,10 @@ export class ES6SyntaxComponent implements OnInit {
   console.log(first) // 1
   console.log(second) // 2
   console.log(last)  // 3
-  
+
   const objA = {
-    year: 2021, 
-    month: 1, 
+    year: 2021,
+    month: 1,
     day: 31
   }
   const { year, month, day } = objA
@@ -145,7 +125,7 @@ export class ES6SyntaxComponent implements OnInit {
   const two = arrayA[1]
   const rest = arrayA.slice(2)
 
-  
+
   // Also, with the destructuring operator, we can easily swap values of 2 variables like this:
   let a = 10
   let b = 20
@@ -194,7 +174,7 @@ export class ES6SyntaxComponent implements OnInit {
 
   destructuringOperatorPickingValue: string = `
   const obj = {
-    year; 2021, 
+    year; 2021,
     month: 1,
     day: 31,
     tonnes: 1000
@@ -202,18 +182,18 @@ export class ES6SyntaxComponent implements OnInit {
 
   // Only get the value of year and assign the rest to an object
   const { year, ...theRest } = obj
-  
+
   console.log(year)  // 2021
   console.log(theRest)  // { month: 1, day: 31, tonnes: 1000 }, year has now been removed!
 
 
   // Get the value of tonnes and assign it to another variable called 'ofrTonnes'
-  const { 
-    tonnes: ofrTonnes, 
-    year, 
-    month, 
-    day } = obj 
-  
+  const {
+    tonnes: ofrTonnes,
+    year,
+    month,
+    day } = obj
+
   console.log(ofrTonnes)  // 1000
   `;
 
@@ -235,11 +215,11 @@ export class ES6SyntaxComponent implements OnInit {
     // ... Do other calculations
   }
 
-  
+
   // That same function but improved a bit
   function processTonnageValueImproved(tonnageVal: TonnageValue) {
     const { year, month, asset, tonnes } = tonnageVal
-    
+
     // ... Do other calculations
   }
 
@@ -252,7 +232,7 @@ export class ES6SyntaxComponent implements OnInit {
 
   ternaryOperatorExample: string = `
   const age = 26
-  
+
   // This is the long way of assigning proper value to beverage by checking
   // for age
   let beverage = ''
@@ -319,8 +299,8 @@ export class ES6SyntaxComponent implements OnInit {
     }
   }
 
-  const marry = {
-    name: 'Marry',
+  const mary = {
+    name: 'Mary',
     dog: {
       name: 'Chloe',
       bark: () => {
@@ -329,18 +309,18 @@ export class ES6SyntaxComponent implements OnInit {
     }
   }
 
-  // Since marry might or might not have a dog
+  // Since mary may or may not have a dog
   // we must check if she rally has a dog before letting him/her bark
-  if (marry.dog) {
-    if (marry.dog.bark) {
-      marry.dog.bark()
+  if (mary.dog) {
+    if (mary.dog.bark) {
+      mary.dog.bark()
     }
   }
   `;
 
   chainOperatorProblemExample: string = `
-  const marry = {
-    name: 'Marry',
+  const mary = {
+    name: 'Mary',
     dog: {
       name: 'Chloe',
       puppy: {
@@ -351,20 +331,20 @@ export class ES6SyntaxComponent implements OnInit {
     }
   }
 
-  // We check if Marry's dog has a puppy
+  // We check if Mary's dog has a puppy
   // if yes, we let it bark
-  if (marry.dog) {
-    if (marry.dog.puppy) {
-      if (marry.dog.puppy.bark) {
-        marry.dog.puppy.bark()
+  if (mary.dog) {
+    if (mary.dog.puppy) {
+      if (mary.dog.puppy.bark) {
+        mary.dog.puppy.bark()
       }
     }
   }
   `;
 
   chainOperatorFixProblem: string = `
-  const marry = {
-    name: 'Marry',
+  const mary = {
+    name: 'Mary',
     dog: {
       name: 'Chloe',
       puppy: {
@@ -375,9 +355,37 @@ export class ES6SyntaxComponent implements OnInit {
     }
   }
 
-  // This will print to the console if Marry really has a dog, which also has a 
-  marry.dog?.puppy?.bark?.()
+  // This will print to the console if Mary really has a dog, which also has a
+  mary.dog?.puppy?.bark?()
   `;
+
+  arrowFunctionsExample: string = `
+    // A 'do nothing' function
+    const function1 = () => {}
+
+    // With some arguments
+    const function2 = (arg1, arg2) => {}
+
+    // If only one line is required and result is not an object literal, can omit braces
+    const function3 = (arg1, arg2) => arg1 + arg2
+
+    // If only one line is required and result is an object literal, 'escape' braces with parentheses
+    const function4 = (arg1, arg2) => ({ sum: arg1 + arg2 })
+
+    // If multiple lines are required, use 'return' to return the result
+    const function5 = (arg1, arg2) => {
+      return { sum: arg1 + arg2 }
+    }
+
+    // You can still destructure arguments
+    const function6 = ([arg1, arg2]) => {
+      return \`\${arg1}\${arg2}\`
+    }
+
+    const myInput = { a: 1, b: 2, c: 3 }
+    const myEntries = Object.entries(myInput) // [[a, 1], [b, 2], [c, 3]]
+    myEntries.map(function6)                  // ["a1", "b2", "c3"]
+  `
 
   constructor() {}
 

@@ -10,43 +10,52 @@
     array). It provides a handy way to "spread" the content of that iterable to
     be used in a list of some kind.
   </p>
-  <p>It is usually used to create a copy of an array or object. For example:</p>
+  <p>The following code demonstrates the spread operator's usage:</p>
   <app-code-block [code]="spreadOperatorCodeArray"></app-code-block>
 
   <p>
-    <strong>Useful use cases:</strong> The spread operator is particularly
-    useful when you want to create a copy of an array/object while avoiding some
-    unexpected errors related to different variables having the same reference
-    to the same array/object.
+    <strong>Use Case - Shallow Copy:</strong> The spread operator can be used to
+    conveniently create shallow copies of the contents of arrays and objects. Specifically, the new array/object
+    will have new copies (new instances) of any <a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive" target="_blank">primitive</a>
+    values (numbers, strings, booleans, null/undefined etc.). For non-primitive values (e.g. other objects/arrays nested in the original) in the shallow copy,
+    only the reference is used (i.e. objects and arrays are shared between the clone and original).
   </p>
 
   <p>
-    For example, consider the below script where we accidentally modify the
-    content of <code class="inline-code">arrayA</code> by changing
-    <code class="inline-code">arrayB</code>:
+    For example, consider the below script:
   </p>
-  <app-code-block [code]="spreadOperatorUseCaseSideEffect"></app-code-block>
+  <app-code-block [code]="spreadOperatorUseCaseArrayClone"></app-code-block>
 
   <p>
-    To avoid this unwanted side effect, we can use different methods (e.g. using
-    <code class="inline-code">.concat()</code>,
-    <code class="inline-code">.slice()</code>, spread operator):
+    Note that we can also produce a shallow clone using <code class="inline-code">clonedArray = originalArray.concat([])</code>
+    or with <code class="inline-code">clonedArray = originalArray.slice()</code>
   </p>
-  <app-code-block
-    [code]="spreadOperatorUseCaseFixingSideEffect"
-  ></app-code-block>
 
   <p>
-    In terms of working objects, spread operator is also very useful if we want
-    to create deep copies of an object. For example:
+    <strong>Use Case - Populating Array and Object Literals: </strong> The above shallow-copying behaviour can be extended
+    to quickly and easily build new array literals by spreading existing ones. The order of elements inside the spread array,
+    and the order of those elements relative to other elements in the array are preserved:
   </p>
-  <app-code-block [code]="spreadOperatorObjectUseCase"></app-code-block>
+  <app-code-block [code]="spreadOperatorUseCasePopulatingArrayLiterals"></app-code-block>
 
   <p>
-    Another useful use case of the spread operator is when we want to
-    concatenate many arrays/objects together. For example:
+    Similarly, this works for object literals. However as the same key can be used multiple times in the same object literal
+    (because of using the spread operator), only the last key-value pair is used for each key.
   </p>
-  <app-code-block [code]="spreadOperatorConcat"></app-code-block>
+  <app-code-block [code]="spreadOperatorUseCasePopulatingObjectLiterals"></app-code-block>
+
+  <p>
+    <strong>Use Case - Spreading arguments:</strong> The same syntax can also be used when specifying ordered arguments to a function
+    or method. Specifically, spreading an array will specify arguments in that order. Note that spreading objects to specify arguments
+    by key does NOT work (this is usually solved by passing in a single object with all required arguments instead).
+  </p>
+  <app-code-block [code]="spreadOperatorUseCaseSpreadArguments"></app-code-block>
+
+  <p>
+    <strong>Use Case - Collating arguments:</strong> A similar syntax can also be used when defining functions with an unspecified
+    number of arguments. With this syntax, all arguments are collated into a single array for use within the function.
+  </p>
+  <app-code-block [code]="spreadOperatorUseCaseCollateArguments"></app-code-block>
 </section>
 <section id="destructuring-operator" class="sub-section">
   <h1>Destructuring Operator</h1>
@@ -195,4 +204,28 @@
   </p>
 
   <app-code-block [code]="chainOperatorFixProblem"></app-code-block>
+</section>
+<section id="arrow-functions" class="sub-section">
+  <h1>Arrow Functions</h1>
+  <p>
+    In addition to the regular way of defining functions using the <code>function</code> keyword, functions can
+    also be defined using <strong>Arrow Syntax</strong>. Arrow functions are particularly convenient when defining
+    <strong>callback</strong> functions, for example to use in Array methods.
+  </p>
+
+  <p>
+    <strong>Syntax: </strong>
+    <code class="inline-code">(arg1, arg2, ...) => &#123; return myResult &#125;</code>
+  </p>
+
+  <p>The code below shows some of the syntax that can be used when defining arrow functions.</p>
+
+  <app-code-block [code]="arrowFunctionsExample"></app-code-block>
+
+  <p>
+    Please note that arrow functions are not the same as functions defined with the <code class="inline-code">function</code> keyword. Some
+    differences exist, such as the behaviour of the <code class="inline-code">this</code> keyword, and the inability to define recursive
+    arrow functions.
+  </p>
+
 </section>

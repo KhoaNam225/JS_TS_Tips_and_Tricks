@@ -29,12 +29,27 @@
     </figcaption>
   </figure>
 </section>
-<section id="array-map" class="sub-section">
-  <h1>.map() function</h1>
+<section id="common-themes" class="sub-section">
+  <h1>Common Themes</h1>
   <p>
-    <strong>Usage: </strong> .map() function is used when you want to perform a
+    Most of the array methods listed below take a <strong>function</strong> as its only argument, with each method
+    performing different operations with the given function. Most of the functions that are used are of the form
+    <code class="inline-code">(value, index, array) => any</code>. Functions that are passed in do not need to
+    handle an index or array argument if these are not required in the function, and a value may need to be
+    returned (or not) depending on the operation chosen.
+  </p>
+  <p>
+    Here are some examples of providing a function to an array method.
+  </p>
+  <app-code-block [code]="commonThemesFunctionExamples"></app-code-block>
+</section>
+<section id="array-map" class="sub-section">
+  <h1>.map() method</h1>
+  <p>
+    <strong>Usage: </strong> The .map() method is used when you want to perform a
     certain operation on each item of an array and get an output value from that
-    operation. It accepts a callback as an argument and this callback must
+    operation (i.e. a one-to-one mapping from each input element to each output element).
+    It accepts a callback as an argument and this callback must
     return a value. After performing the operation on all items, it will return
     a new array containing the results when applying the callback on each item.
   </p>
@@ -44,7 +59,7 @@
 
   <p>
     In the above example, we passed in a function that will take in a number,
-    double it and return the result. The resulted array will contain the values
+    double it and return the result. The resulting array will contain the values
     of the original array multiply by 2.
   </p>
 
@@ -55,19 +70,31 @@
   </p>
 
   <app-code-block [code]="mapFunctionArrowCallback"></app-code-block>
+
+  <p>
+    The callback function used in <code class="inline-code">.map()</code> can have up to three arguments,
+    being the <code class="inline-code">(currentValue, currentIndex, array)</code> respectively. The
+    code below shows some examples of this usage.
+  </p>
+  <app-code-block [code]="mapFunctionOtherFunctionArguments"></app-code-block>
 </section>
 
 <section id="array-foreach" class="sub-section">
-  <h1>.forEach() function</h1>
+  <h1>.forEach() method</h1>
   <p>
-    <strong>Usage: </strong> Same with <code class="inline-code">.map()</code>,
+    <strong>Usage: </strong> Similarly with <code class="inline-code">.map()</code>,
     <code class="inline-code">.forEach()</code> is used when you want to iterate
-    through an array and perform some certain operation on each of its item.
+    through an array and perform some certain operation for each item in the array.
     However, unlike <code class="inline-code">.map()</code>,
     <code class="inline-code">.forEach()</code> does not return any values so it
-    does not require the callback to return anything. This will be useful when
+    does not require the callback to return anything. This can be useful when
     you just want to manipulate the existing array instead of creating a new
-    one.
+    one, or when iterating through the array like a traditional <code class="inline-code">for</code> loop.
+  </p>
+
+  <p>
+    The callback function in <code class="inline-code">.forEach()</code> can use up to three arguments,
+    corresponding to <code class="inline-code">(currentValue, currentIndex, array)</code>.
   </p>
   <p><strong>Example: </strong></p>
 
@@ -75,19 +102,24 @@
 </section>
 
 <section id="array-filter" class="sub-section">
-  <h1>.filter() function</h1>
+  <h1>.filter() method</h1>
   <p>
     <strong>Usage: </strong> <code class="inline-code">.filter()</code> is used
-    when you want to filter the items of an array base on some conditions. It
+    to filter the items of an array base on some conditions. It
     will accept a callback that returns either falsy or truthy values. The
     callback will then be executed for each of the items, if the return value is
-    falsy (<code class="inline-code">null, undefined, '', 0</code>), the item
+    falsy (<code class="inline-code">false, null, undefined, '', 0</code>), the item
     will not be included in the new array.
   </p>
 
   <p>
-    Also, <code class="inline-code">.filter()</code> won't modify the original
-    array, the items that satisfy the condition will be included in a new array.
+    Note that <code class="inline-code">.filter()</code> creates a shallow copy of items with
+    truthy results, so primitive values will be copied, but other items will reference the corresponding
+    original items.
+  </p>
+  <p>
+    The callback function in <code class="inline-code">.filter()</code> can use up to three arguments,
+    corresponding to <code class="inline-code">(currentValue, currentIndex, array)</code>.
   </p>
   <p><strong>Example: </strong></p>
 
@@ -95,7 +127,7 @@
 </section>
 
 <section id="array-find" class="sub-section">
-  <h1>.find() function</h1>
+  <h1>.find() method</h1>
   <p>
     <strong>Usage: </strong> <code class="inline-code">.find()</code> is used
     when you want to search for an item inside an array base on some conditions.
@@ -107,13 +139,24 @@
     <code class="inline-code">undefined</code>
   </p>
 
+  <p>
+    <code class="inline-code">.find()</code> is functionally similar to <code class="inline-code">.filter()</code>
+    and <code class="inline-code">.findIndex()</code>, but can be chosen over these other methods if, for example,
+    only one element is expected to satisfy the callback and that element needs to be used immediately.
+  </p>
+
+  <p>
+    The callback function in <code class="inline-code">.find()</code> can use up to three arguments,
+    corresponding to <code class="inline-code">(currentValue, currentIndex, array)</code>.
+  </p>
+
   <p><strong>Example: </strong></p>
 
   <app-code-block [code]="findFunctionExample"></app-code-block>
 </section>
 
 <section id="array-find-index" class="sub-section">
-  <h1>.findIndex() function</h1>
+  <h1>.findIndex() method</h1>
   <p>
     <strong>Usage: </strong> Similar to
     <code class="inline-code">.find()</code>,
@@ -129,28 +172,88 @@
     <code class="inline-code">-1</code>.
   </p>
 
+  <p>
+    The callback function in <code class="inline-code">.findIndex()</code> can use up to three arguments,
+    corresponding to <code class="inline-code">(currentValue, currentIndex, array)</code>.
+  </p>
+
   <p><strong>Example: </strong></p>
 
   <app-code-block [code]="findIndexFunctionExample"></app-code-block>
 </section>
 
 <section id="array-reduce" class="sub-section">
-  <h1>.reduce() function</h1>
+  <h1>.reduce() method</h1>
   <p>
     <strong>Usage: </strong> Unlike other array methods,
-    <code class="inline-code">.reduce()</code> does not return an array, it
-    returns a single value instead. In other words, it "reduces" the array into
-    one single value.
+    <code class="inline-code">.reduce()</code> does not necessarily return an array, but instead a single instance,
+    (which may be a string, number, array, object etc.). In other words, it "reduces" the array into
+    one single value, or in other words, in the simplest case performs a many-to-one mapping. Because the returned value
+    can also be an array, <code class="inline-code">.reduce()</code> can also be a one-to-one, or one-to-many mapping.
   </p>
 
   <p>
-    <code class="inline-code">.reduce()</code> does this by taking 2 arguments:
-    A callback and an initial value. The callback must return a value when
-    executed on each item of the array. That value will then be used in the same
-    callback when it is executed on the next item.
+    <code class="inline-code">.reduce()</code> works by starting with an initial value (e.g. 0), and then iterates through
+    the array, changing the initial value (now referred to as the <strong>accumulator</strong>), and the final value
+    is returned. For example, by adding each value in an array to numbers to the accumulator, we can calculate the sum of the
+    numbers in the array.
+  </p>
+
+  <p>
+    <code class="inline-code">.reduce()</code> does this by taking 2 arguments: A callback and an initial value.
+  </p>
+
+  <p>
+    <strong>Unlike most other array methods</strong>, the callback function in <code class="inline-code">.reduce()</code>
+    can use up to <strong>four arguments</strong>, corresponding to
+    <code class="inline-code">(accumulator, currentValue, currentIndex, array)</code>.
   </p>
 
   <p><strong>Example: </strong></p>
 
   <app-code-block [code]="reduceFunctionExample"></app-code-block>
+</section>
+
+<section id="array-some" class="sub-section">
+  <h1>.some() method</h1>
+  <p>
+    <strong>Usage: </strong><code class="inline-code">.some()</code> can be considered a special case of <code class="inline-code">.reduce()</code>,
+    where the result is <code class="inline-code">true</code> or <code class="inline-code">false</code>, depending on whether
+    there is <strong>any</strong> element in the array which returns truthy to the callback function.
+  </p>
+  <p>
+    As the syntax for <code class="inline-code">.reduce()</code> can be cumbersome and difficult to read, it may be good to use
+    <code class="inline-code">.some()</code> when suitable to improve the readability of code.
+  </p>
+
+  <p>
+    The callback function in <code class="inline-code">.some()</code> can use up to three arguments,
+    corresponding to <code class="inline-code">(currentValue, currentIndex, array)</code>.
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="someFunctionExample"></app-code-block>
+</section>
+
+<section id="array-every" class="sub-section">
+  <h1>.every() method</h1>
+  <p>
+    <strong>Usage: </strong><code class="inline-code">.every()</code> can be considered a special case of <code class="inline-code">.reduce()</code>,
+    where the result is <code class="inline-code">true</code> or <code class="inline-code">false</code>, depending on whether
+    <strong>every</strong> element in the array returns truthy to the callback function.
+  </p>
+  <p>
+    Similarly to <code class="inline-code">.some()</code>, <code class="inline-code">.every()</code> is more concise
+    than using <code class="inline-code">.reduce()</code>, and so can improve code readability.
+  </p>
+
+  <p>
+    The callback function in <code class="inline-code">.every()</code> can use up to three arguments,
+    corresponding to <code class="inline-code">(currentValue, currentIndex, array)</code>.
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="everyFunctionExample"></app-code-block>
 </section>
