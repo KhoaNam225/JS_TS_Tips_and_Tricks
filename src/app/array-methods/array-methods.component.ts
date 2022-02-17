@@ -142,6 +142,38 @@ export class ArrayMethodsComponent implements OnInit {
   const isAllEven = originalArray.every(v => v % 2 === 0)                // false
   `
 
+  sliceFunctionExample: string = `
+  const originalArray = [1, 2, 3, 4, 5]
+  const copyAll = originalArray.slice()         // [1, 2, 3, 4, 5]
+  const afterThird = originalArray.slice(3)     // [4, 5]
+  const lastThree = originalArray.slice(-3)     // [3, 4, 5]
+  const firstThree = originalArray.slice(0, 3)  // [1, 2, 3]
+  const someSlice = originalArray.slice(-3, -1) // [2, 3, 4]
+
+  originalArray.slice(3, -3)                    // []
+  const longerArray = [1, 2, 3, 4, 5, 6, 7, 8]
+  longerArray.slice(3, -3)                      // [4, 5]
+  `
+
+  spliceFunctionExample: string = `
+  let array1 = [1, 2, 3, 4, 5, 6, 7]
+  array1.splice(3)  // Returns [4, 5, 6, 7]; array1 === [1, 2, 3]
+
+  array1 = [1, 2, 3, 4, 5, 6, 7]
+  array1.splice(3, 2) // Returns [4, 5]; array1 = [1, 2, 3, 6, 7]
+
+  array1 = [1, 2, 3, 4, 5, 6, 7]
+  array1.splice(3, 2, 0, 0, 0) // Returns [4, 5]; array1 = [1, 2, 3, 0, 0, 0, 6, 7]
+
+  // Swapping some elements between two arrays
+  array1 = [1, 2, 3, 4, 5, 6, 7]
+  let array2 = [10, 20, 30, 40, 50, 60, 70]
+
+  array2.splice(-3+2, 0, ...array1.splice(-3, 2, ...array2.splice(-3, 2)))
+  // Returns []
+  // array1 = [1, 2, 3, 4, 50, 60, 7]
+  // array2 = [10, 20, 30, 40, 5, 6, 70]
+  `
 
   constructor() {}
 

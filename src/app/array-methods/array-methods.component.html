@@ -257,3 +257,49 @@
 
   <app-code-block [code]="everyFunctionExample"></app-code-block>
 </section>
+
+<section id="array-slice" class="sub-section">
+  <h1>.slice() method</h1>
+  <p>
+    <strong>Usage: </strong><code class="inline-code">.slice()</code> can be used to make shallow copies of a contiguous
+    section of the array, by specifying a starting and ending index (the ending index is excluded from the result). If a
+    second argument is omitted, the result starts from the first argument, to the end of the array. If no arguments are given,
+    a shallow copy of the entire array is returned.
+  </p>
+  <p>
+    The index arguments can be zero to denote the start of the array, positive to denote 0-based positions from the start
+    of the array, or negative to denote 0-based positions from the end of the array. If the first index comes after the second index,
+    an empty array is returned.
+  </p>
+  <p>
+    The callback function in <code class="inline-code">.slice()</code> can use up to two arguments,
+    corresponding to <code class="inline-code">(startIndex, endIndex)</code>.
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="sliceFunctionExample"></app-code-block>
+</section>
+
+<section id="array-splice" class="sub-section">
+  <h1>.splice() method</h1>
+  <p>
+    <strong>Usage: The </strong><code class="inline-code">.splice()</code> performs provides two actions. The first
+    is to remove a contiguous section of the array in-place (i.e. the original array is modified) and replaced with other specified
+    elements. The second, is that the removed contiguous section is returned from the method.
+  </p>
+  <p>
+    The section of the array to be removed is defined with an index argument, and the length of the section to be removed.
+    If the second argument (length) is not specified, the rest of the array after the starting index is removed. Any further arguments
+    (after the second) are element to be 'spliced' (inserted) in place of the removed section in order. If no arguments are
+    given, no elements are removed or spliced in.
+  </p>
+  <p>
+    The callback function in <code class="inline-code">.splice()</code> takes any number of arguments,
+    corresponding to <code class="inline-code">(startIndex, sectionLength, ...splicedElements)</code>.
+  </p>
+
+  <p><strong>Example: </strong></p>
+
+  <app-code-block [code]="spliceFunctionExample"></app-code-block>
+</section>

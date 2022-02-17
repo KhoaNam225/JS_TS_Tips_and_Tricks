@@ -20,33 +20,33 @@ export class ObjectMethodsComponent implements OnInit {
 
   objectArrayStringOverview: string = `
     const seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-    
+
     console.log(seasons[0])   // 'Spring'
     console.log(season['0'])  // Still 'Spring'! No ERROR!
 
     const username = 'John Do'
     console.log(username[0])  // 'J'
-    console.log(username['0'])  // Stil 'J'! No ERROR!
+    console.log(username['0'])  // Still 'J'! No ERROR!
   `;
 
   objectKeysExample = `
   const customerAge = {
     'John': 18,
-    'Marry': 20,
+    'Mary': 20,
     'Chloe': 35
   }
 
-  const customersName = Object.keys(customerAge)   // ['John', 'Marry', 'Chloe']
+  const customersName = Object.keys(customerAge)   // ['John', 'Mary', 'Chloe']
 
   const customersUnder30 = customersName.filter(name => customerAge[name] < 30)
 
-  console.log(customerUnder30)  // ['John', 'Marry']
+  console.log(customerUnder30)  // ['John', 'Mary']
   `;
 
   objectValuesExample: string = `
   const customerAge = {
     'John': 18,
-    'Marry': 20,
+    'Mary': 20,
     'Chloe': 35
   }
 
@@ -63,7 +63,7 @@ export class ObjectMethodsComponent implements OnInit {
   objectEntriesExample: string = `
   const customerAge = {
     'John': 18,
-    'Marry': 20,
+    'Mary': 20,
     'Chloe': 35
   }
 
@@ -73,7 +73,7 @@ export class ObjectMethodsComponent implements OnInit {
   })
 
   // John is 18 years old
-  // Marry is 20 years old
+  // Mary is 20 years old
   // Chloe is 35 years old
   `;
 
@@ -87,7 +87,7 @@ export class ObjectMethodsComponent implements OnInit {
   }
 
   const person2 = {
-    name: 'Marry',
+    name: 'Mary',
     age: 30,
     sex: 'F'
   }
@@ -98,13 +98,13 @@ export class ObjectMethodsComponent implements OnInit {
 
   Object.assign(target, person2)
 
-  console.log(target)  // { name: 'Marry', age: 30, sex: 'F' }
+  console.log(target)  // { name: 'Mary', age: 30, sex: 'F' }
 
   // Object.assign() also accepts more than 2 arguments
   // The first argument is always the target, then the subsequent arguments will be 'paste' onto the target one by one from left to right
   Object.assign(target, person1, person2)
 
-  console.log(target)  // { name: 'Marry', age: 30, sex: 'F' }
+  console.log(target)  // { name: 'Mary', age: 30, sex: 'F' }
   `;
   constructor() {}
 
