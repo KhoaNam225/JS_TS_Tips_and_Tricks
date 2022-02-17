@@ -1,3 +1,9 @@
+# TODO:
+- Add sort to array functions
+- Getters and setters for classes
+- Object.assign() uses setters, spread operators doesn't
+- 'this' keyword, and .bind()
+
 # TypescriptPtc
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.2.

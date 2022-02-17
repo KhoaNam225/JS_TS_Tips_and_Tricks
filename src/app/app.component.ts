@@ -67,6 +67,22 @@ export class AppComponent {
           title: '.reduce()',
           route: 'array-reduce',
         },
+        {
+          title: '.some()',
+          route: 'array-some',
+        },
+        {
+          title: '.every()',
+          route: 'array-every',
+        },
+        {
+          title: '.slice()',
+          route: 'array-slice',
+        },
+        {
+          title: '.every()',
+          route: 'array-splice',
+        },
       ],
     },
     {
