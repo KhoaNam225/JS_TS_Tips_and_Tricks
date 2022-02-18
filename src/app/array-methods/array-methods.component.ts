@@ -18,7 +18,7 @@ export class ArrayMethodsComponent implements OnInit {
     accumulator[index] = doSomething(currentValue, array)
     return accumulator
   }, {})
-  `
+  `;
 
   mapFunctionExample: string = `
   const originalArray = [1, 2, 3, 4, 5]
@@ -28,7 +28,7 @@ export class ArrayMethodsComponent implements OnInit {
   })
 
   console.log(originalArray)   // [1, 2, 3, 4, 5]
-  console.log(doubledArray)    // [2, 3, 6, 8, 10]
+  console.log(doubledArray)    // [2, 4, 6, 8, 10]
   `;
 
   mapFunctionArrowCallback: string = `
@@ -92,8 +92,7 @@ export class ArrayMethodsComponent implements OnInit {
   // The following code returns the first item equal to its 0-based position in the array
   const anotherArray = [4, 1, 2, 5, 7, 3]
   const result = anotherArray.find((v, i) => v === i)                  // 1
-  `
-
+  `;
 
   findIndexFunctionExample: string = `
   const originalArray = [1, 2, 3, 4, 5]
@@ -104,7 +103,7 @@ export class ArrayMethodsComponent implements OnInit {
 
   console.log(greaterThan1 !== -1 ?? greaterThan1 : 'No values greater than 1')  // 1, since item '2' is at position 1
   console.log(greaterThan6 !== -1 ?? greaterThan6 : 'No values greater than 6')  // No values greater than 6
-  `
+  `;
 
   reduceFunctionExample: string = `
   const originalArray = [1, 2, 3, 4, 5]
@@ -128,19 +127,19 @@ export class ArrayMethodsComponent implements OnInit {
   const nestedArrays = [[1], [2, 2], [3, 3, 3]]
   const flattened = nestedArrays.reduce((acc, v) => [...acc, ...v], [])
   // [1, 2, 2, 3, 3, 3]
-  `
+  `;
 
   someFunctionExample: string = `
   const originalArray = [1, 2, 3, 4, 5]
   const hasEvenNumbers = originalArray.some(v => v % 2 === 0)   // true
   const hasMultipleOfSix = originalArray.some(v => v % 6 === 0) // false
-  `
+  `;
 
   everyFunctionExample: string = `
   const originalArray = [1, 2, 3, 4, 5]
   const isAllNumbers = originalArray.every(v => typeof v === 'number')   // true
   const isAllEven = originalArray.every(v => v % 2 === 0)                // false
-  `
+  `;
 
   sliceFunctionExample: string = `
   const originalArray = [1, 2, 3, 4, 5]
@@ -153,7 +152,7 @@ export class ArrayMethodsComponent implements OnInit {
   originalArray.slice(3, -3)                    // []
   const longerArray = [1, 2, 3, 4, 5, 6, 7, 8]
   longerArray.slice(3, -3)                      // [4, 5]
-  `
+  `;
 
   spliceFunctionExample: string = `
   let array1 = [1, 2, 3, 4, 5, 6, 7]
@@ -173,7 +172,7 @@ export class ArrayMethodsComponent implements OnInit {
   // Returns []
   // array1 = [1, 2, 3, 4, 50, 60, 7]
   // array2 = [10, 20, 30, 40, 5, 6, 70]
-  `
+  `;
 
   constructor() {}
 
