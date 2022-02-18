@@ -80,7 +80,7 @@ export class AppComponent {
           route: 'array-slice',
         },
         {
-          title: '.every()',
+          title: '.splice()',
           route: 'array-splice',
         },
       ],
