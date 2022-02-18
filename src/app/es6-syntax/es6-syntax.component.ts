@@ -66,10 +66,10 @@ export class ES6SyntaxComponent implements OnInit {
   }
 
   const myArgs1 = ["a", "b", "c"]
-  concatThreeStrings(...myArgs)         // "abc"
+  concatThreeStrings(...myArgs1)         // "abc"
 
   const myArgs2 = ["a", "b"]
-  concatThreeStrings(...myArgs, "c")    // "abc"
+  concatThreeStrings(...myArgs2, "c")    // "abc"
 
   const myArgs3 = {arg3: "c", arg1: "a", arg2: "b"}
 
@@ -86,7 +86,7 @@ export class ES6SyntaxComponent implements OnInit {
 
   spreadOperatorUseCaseCollateArguments: string = `
   function sum(...arguments) {
-    return arguments.reduce((acc, value) => acc + value)
+    return arguments.reduce((acc, value) => acc + value, 0)
   }
 
   sum(10, 20, 30, 40) // 100

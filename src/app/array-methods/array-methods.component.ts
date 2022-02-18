@@ -28,7 +28,7 @@ export class ArrayMethodsComponent implements OnInit {
   })
 
   console.log(originalArray)   // [1, 2, 3, 4, 5]
-  console.log(doubledArray)    // [2, 3, 6, 8, 10]
+  console.log(doubledArray)    // [2, 4, 6, 8, 10]
   `;
 
   mapFunctionArrowCallback: string = `
@@ -37,7 +37,7 @@ export class ArrayMethodsComponent implements OnInit {
   const doubledArray = originalArray.map((item) => return item * 2)
 
   console.log(originalArray)   // [1, 2, 3, 4, 5]
-  console.log(doubledArray)    // [2, 3, 6, 8, 10]
+  console.log(doubledArray)    // [2, 4, 6, 8, 10]
   `;
 
   mapFunctionOtherFunctionArguments: string = `

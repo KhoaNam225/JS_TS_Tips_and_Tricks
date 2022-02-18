@@ -127,7 +127,7 @@
   <p>
     <strong>Syntax: </strong>
     <code class="inline-code"
-      >[conditional_statement] : [value_if_true] ? [value_if_false]</code
+      >[conditional_statement] ? [value_if_true] : [value_if_false]</code
     >
   </p>
   <p>
@@ -149,7 +149,7 @@
   </p>
   <p>
     In some situations, we might need to check if a certain variable has falsy
-    value (<code class="inline-code">null, NaN, 0, '', undefined</code>) to
+    value (<code class="inline-code">false, null, NaN, 0, '', undefined</code>) to
     decide if we should use it or another default value.
   </p>
 
