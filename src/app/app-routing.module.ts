@@ -26,6 +26,11 @@ const routes: Routes = [
         (module) => module.ObjectMethodsModule
       ),
   },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'es6-syntax',
+  },
 ];
 
 @NgModule({
