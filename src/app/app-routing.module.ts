@@ -3,28 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'es6-syntax',
-    pathMatch: 'full',
+    path: 'content',
+    pathMatch: 'prefix',
     loadChildren: () =>
-      import('./es6-syntax/es6-syntax.module').then(
-        (module) => module.ES6SyntaxModule
-      ),
-  },
-  {
-    path: 'array-methods',
-    pathMatch: 'full',
-    loadChildren: () =>
-      import('./array-methods/array-methods.module').then(
-        (module) => module.ArrayMethodsModule
-      ),
-  },
-  {
-    path: 'object-methods',
-    pathMatch: 'full',
-    loadChildren: () =>
-      import('./object-methods/object-methods.module').then(
-        (module) => module.ObjectMethodsModule
-      ),
+      import('./content/content.module').then((module) => module.ContentModule),
   },
   {
     path: '',

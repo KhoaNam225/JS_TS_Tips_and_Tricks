@@ -15,7 +15,7 @@ export class AppComponent {
   pages: Page[] = [
     {
       title: 'ES6 Syntax',
-      route: 'es6-syntax',
+      route: '/content/es6-syntax',
       subPages: [
         {
           title: 'Spread Operator',
@@ -37,7 +37,7 @@ export class AppComponent {
     },
     {
       title: 'Array Methods',
-      route: 'array-methods',
+      route: '/content/array-methods',
       subPages: [
         {
           title: 'Common Themes',
@@ -87,7 +87,7 @@ export class AppComponent {
     },
     {
       title: 'Object Methods',
-      route: 'object-methods',
+      route: '/content/object-methods',
       subPages: [
         {
           title: 'Object.keys()',
