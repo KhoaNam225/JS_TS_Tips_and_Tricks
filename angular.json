@@ -104,5 +104,7 @@
       }
     }
   },
-  "defaultProject": "typescript-ptc"
+  "cli": {
+    "analytics": false
+  }
 }
