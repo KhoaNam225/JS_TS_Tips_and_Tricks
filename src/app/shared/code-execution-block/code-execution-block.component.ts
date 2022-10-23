@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { editor } from 'monaco-editor';
 
 @Component({
   selector: 'app-code-execution-block',
@@ -56,5 +55,9 @@ export class CodeExecutionBlockComponent implements OnInit {
       `height: ${this.editorHeight}px`
     );
     editor.layout();
+  }
+
+  runCode() {
+    console.log('code ran >>>', this.code);
   }
 }

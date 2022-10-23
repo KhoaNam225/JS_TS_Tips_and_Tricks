@@ -12,6 +12,13 @@
     ></ngx-monaco-editor>
   </div>
   <div class="console-wrapper">
-    <code [highlight]="code" [languages]="['bash']"></code>
+    <code
+      class="console-content"
+      [highlight]="code"
+      [languages]="['bash']"
+    ></code>
+    <button class="execute-btn" (click)="runCode()">
+      <i class="fa-solid fa-play"></i> Run code
+    </button>
   </div>
 </div>
