@@ -25,6 +25,7 @@
 </pre>
 
 <pre
+  class="console-content"
   *ngIf="
     !executingCode &&
     codeExecutionResult &&
@@ -32,8 +33,6 @@
   "
 >
 <code
-  
-  class="console-content"
   [highlight]="
     codeExecutionResult.status.description +
     ': ' +
@@ -44,6 +43,7 @@
 </pre>
 
 <pre
+  class="console-content"
   *ngIf="
     !executingCode &&
     codeExecutionResult &&
@@ -52,8 +52,6 @@
   "
 >
 <code
-  
-  class="console-content"
   [highlight]="
     codeExecutionResult.status.description + ': ' + codeExecutionResult.stderr
   "
