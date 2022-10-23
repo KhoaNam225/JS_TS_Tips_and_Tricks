@@ -1,0 +1,18 @@
+.code-execution-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.editor-wrapper {
+  width: 60%;
+}
+
+.console-wrapper {
+  width: 40%;
+  display: flex;
+
+  code {
+    display: block;
+    padding: 1rem 2rem;
+  }
+}

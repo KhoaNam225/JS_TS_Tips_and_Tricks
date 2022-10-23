@@ -1,1 +1,17 @@
-<p>code-execution-block works!</p>
+<div class="code-execution-wrapper">
+  <div
+    #editorWrapper
+    class="editor-wrapper"
+    [ngStyle]="{ height: editorHeight + 'px' }"
+  >
+    <ngx-monaco-editor
+      style="height: 100%"
+      [options]="editorOptions"
+      (onInit)="onEditorReady($event)"
+      [(ngModel)]="code"
+    ></ngx-monaco-editor>
+  </div>
+  <div class="console-wrapper">
+    <code [highlight]="code" [languages]="['bash']"></code>
+  </div>
+</div>

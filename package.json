@@ -22,7 +22,9 @@
     "@angular/router": "^14.2.6",
     "highlight.js": "^11.4.0",
     "highlightjs-line-numbers.js": "^2.8.0",
+    "monaco-editor": "^0.33.0",
     "ngx-highlightjs": "^7.0.1",
+    "ngx-monaco-editor-v2": "^14.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
