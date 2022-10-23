@@ -6,7 +6,8 @@ import {
   LanguageInfo,
 } from '../model/code-execution-models';
 
-export const DefaultLanguageID = 74; // Typescript id is 74
+export const DefaultLanguageID = 63; // Javascript id is 63
+// We have to use javascript here because Typescript doesn't support Promise with Judge0
 
 export const CodeExecutionAPIKeyInjectionToken =
   'CodeExecutionAPIKeyInjectionToken';
