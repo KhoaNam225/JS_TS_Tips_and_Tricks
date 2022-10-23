@@ -1,0 +1,62 @@
+<pre class="console-content" *ngIf="executingCode"><code
+  [highlight]="'Running your code...'"
+  [languages]="['bash']"
+></code></pre>
+
+<pre
+  class="console-content"
+  *ngIf="!executingCode && !codeExecutionResult"
+><code
+  [highlight]="'Click \'Run Code\' to run your code...'"
+  [languages]="['bash']"
+></code></pre>
+
+<pre
+  class="console-content"
+  *ngIf="
+    !executingCode &&
+    codeExecutionResult &&
+    codeExecutionResult.status.id === ExecutionStatus.Accepted
+  "
+><code  
+  [highlight]="codeExecutionResult.stdout"
+  [languages]="['bash']"
+></code>
+</pre>
+
+<pre
+  *ngIf="
+    !executingCode &&
+    codeExecutionResult &&
+    codeExecutionResult.status.id === ExecutionStatus.CompilationError
+  "
+>
+<code
+  
+  class="console-content"
+  [highlight]="
+    codeExecutionResult.status.description +
+    ': ' +
+    codeExecutionResult.compileOutput
+  "
+  [languages]="['bash']"
+></code>
+</pre>
+
+<pre
+  *ngIf="
+    !executingCode &&
+    codeExecutionResult &&
+    codeExecutionResult.status.id !== ExecutionStatus.Accepted &&
+    codeExecutionResult.status.id !== ExecutionStatus.CompilationError
+  "
+>
+<code
+  
+  class="console-content"
+  [highlight]="
+    codeExecutionResult.status.description + ': ' + codeExecutionResult.stderr
+  "
+  [languages]="['bash']"
+></code>
+</pre>

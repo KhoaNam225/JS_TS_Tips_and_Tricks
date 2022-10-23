@@ -1,4 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { CodeExecutionResult } from '../model/code-execution-models';
+import { CodeExecutionService } from '../services/code-execution.service';
 
 @Component({
   selector: 'app-code-execution-block',
@@ -17,6 +20,9 @@ export class CodeExecutionBlockComponent implements OnInit {
   };
 
   editorHeight: number = 400; // Default height for editor
+
+  executingCode: boolean = false;
+  executingResult: Subject<CodeExecutionResult | undefined> = new Subject();
 
   @ViewChild('editorWrapper', { read: ElementRef }) editorContainer:
     | ElementRef
@@ -43,7 +49,7 @@ export class CodeExecutionBlockComponent implements OnInit {
   console.log(copiedObject)  // This will also give: { year: 2022, month: 1 }
   `;
 
-  constructor() {}
+  constructor(private codeExecutionService: CodeExecutionService) {}
 
   ngOnInit(): void {}
 
@@ -57,7 +63,21 @@ export class CodeExecutionBlockComponent implements OnInit {
     editor.layout();
   }
 
-  runCode() {
-    console.log('code ran >>>', this.code);
+  async runCode() {
+    try {
+      this.executingCode = true;
+      const result = await this.codeExecutionService.executeCodeSync(this.code);
+      this.executingResult.next(result);
+      this.executingCode = false;
+    } catch (error) {
+      console.error(error);
+      this.executingCode = false;
+      this.executingResult.next(undefined);
+    }
+  }
+
+  reset() {
+    this.executingCode = false;
+    this.executingResult.next(undefined);
   }
 }

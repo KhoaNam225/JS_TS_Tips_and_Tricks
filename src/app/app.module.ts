@@ -10,6 +10,13 @@ import {
   HighlightOptions,
   HIGHLIGHT_OPTIONS,
 } from 'ngx-highlightjs';
+import { environment } from '../environments/environment';
+import {
+  CodeExecutionAPIKeyInjectionToken,
+  CodeExecutionBaseUrlInjectionToken,
+  CodeExecutionHostInjectionToken,
+} from './shared/services/code-execution.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +26,7 @@ import {
     BrowserAnimationsModule,
     MaterialModule,
     HighlightModule,
+    HttpClientModule,
   ],
   providers: [
     {
@@ -32,6 +40,18 @@ import {
           xml: () => import('highlight.js/lib/languages/xml'),
         },
       },
+    },
+    {
+      provide: CodeExecutionAPIKeyInjectionToken,
+      useValue: environment.rapidAPIKey,
+    },
+    {
+      provide: CodeExecutionBaseUrlInjectionToken,
+      useValue: environment.rapidAPIBaseURL,
+    },
+    {
+      provide: CodeExecutionHostInjectionToken,
+      useValue: environment.rapidAPIHost,
     },
   ],
   bootstrap: [AppComponent],

@@ -5,9 +5,10 @@ import { HighLightModule } from '../highlight.module';
 import { CodeExecutionBlockComponent } from './code-execution-block/code-execution-block.component';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 import { FormsModule } from '@angular/forms';
+import { CodeExecutionResultComponent } from './code-execution-result/code-execution-result.component';
 
 @NgModule({
-  declarations: [CodeBlockComponent, CodeExecutionBlockComponent],
+  declarations: [CodeBlockComponent, CodeExecutionBlockComponent, CodeExecutionResultComponent],
   imports: [
     CommonModule,
     HighLightModule,

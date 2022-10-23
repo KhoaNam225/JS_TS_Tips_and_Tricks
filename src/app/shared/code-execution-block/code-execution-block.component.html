@@ -12,13 +12,17 @@
     ></ngx-monaco-editor>
   </div>
   <div class="console-wrapper">
-    <code
-      class="console-content"
-      [highlight]="code"
-      [languages]="['bash']"
-    ></code>
-    <button class="execute-btn" (click)="runCode()">
-      <i class="fa-solid fa-play"></i> Run code
-    </button>
+    <app-code-execution-result
+      [codeExecutionResult]="executingResult | async"
+      [executingCode]="executingCode"
+    ></app-code-execution-result>
+    <div class="btn-wrapper">
+      <button class="execute-btn btn" (click)="runCode()">
+        <i class="fa-solid fa-play"></i> Run code
+      </button>
+      <button class="reset-btn btn" (click)="reset()">
+        <i class="fa-solid fa-repeat"></i> Reset
+      </button>
+    </div>
   </div>
 </div>
