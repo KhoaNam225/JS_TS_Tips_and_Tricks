@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { CodeExecutionResult } from '../model/code-execution-models';
 import { CodeExecutionService } from '../services/code-execution.service';
@@ -28,7 +28,10 @@ export class CodeExecutionBlockComponent implements OnInit {
     | ElementRef
     | undefined;
 
-  code: string = `
+  @Input()
+  defaultSourceCode: string = '';
+
+  currentSourceCode: string = `
   const originalArray = [1, 2, 3, 4]
 
   const copiedArray = [...originalArray]
@@ -51,7 +54,9 @@ export class CodeExecutionBlockComponent implements OnInit {
 
   constructor(private codeExecutionService: CodeExecutionService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentSourceCode = this.defaultSourceCode;
+  }
 
   onEditorReady(editor: any) {
     const linesCount = editor.getModel().getLineCount();
@@ -66,7 +71,9 @@ export class CodeExecutionBlockComponent implements OnInit {
   async runCode() {
     try {
       this.executingCode = true;
-      const result = await this.codeExecutionService.executeCodeSync(this.code);
+      const result = await this.codeExecutionService.executeCodeSync(
+        this.currentSourceCode
+      );
       this.executingResult.next(result);
       this.executingCode = false;
     } catch (error) {
@@ -79,5 +86,6 @@ export class CodeExecutionBlockComponent implements OnInit {
   reset() {
     this.executingCode = false;
     this.executingResult.next(undefined);
+    this.currentSourceCode = this.defaultSourceCode;
   }
 }
