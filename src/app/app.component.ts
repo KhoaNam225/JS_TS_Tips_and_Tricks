@@ -107,25 +107,31 @@ export class AppComponent {
         },
       ],
     },
-    // {
-    //   title: 'Miscellaneous',
-    //   route: 'miscellaneous',
-    //   subPages: [
-    //     {
-    //       title: 'Guard clauses',
-    //       route: 'misc-guard-clauses',
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: 'Lodash',
-    //   route: 'lodash',
-    //   subPages: [
-    //     {
-    //       title: '_.cloneDeep()',
-    //       route: 'lodash-clone-deep',
-    //     },
-    //   ],
-    // },
+    {
+      title: 'Asynchronous JavasScript',
+      route: '/content/async-js',
+      subPages: [
+        {
+          title: 'Synchronous vs Asynchronous',
+          route: 'sync-vs-async',
+        },
+        {
+          title: 'Callback',
+          route: 'callback',
+        },
+        {
+          title: 'Promise',
+          route: 'promise',
+        },
+        {
+          title: 'Async/Await',
+          route: 'async-await',
+        },
+        {
+          title: 'Event Loop',
+          route: 'event-loop',
+        },
+      ],
+    },
   ];
 }

@@ -26,6 +26,14 @@ const routes: Routes = [
         (module) => module.ObjectMethodsModule
       ),
   },
+  {
+    path: 'async-js',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./async-javascript/async-javascript.module').then(
+        (module) => module.AsyncJavascriptModule
+      ),
+  },
 ];
 
 @NgModule({
