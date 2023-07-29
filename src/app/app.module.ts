@@ -1,22 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 import {
   HighlightModule,
   HighlightOptions,
   HIGHLIGHT_OPTIONS,
 } from 'ngx-highlightjs';
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { MaterialModule } from './material.module';
 import {
   CodeExecutionAPIKeyInjectionToken,
   CodeExecutionBaseUrlInjectionToken,
   CodeExecutionHostInjectionToken,
 } from './shared/services/code-execution.service';
-import { HttpClientModule } from '@angular/common/http';
+
+export function markedOptionsFactory(): MarkedOptions {
+  const renderer = new MarkedRenderer();
+
+  renderer.code = (code: string, language: string) => {
+    return `<pre class="language-${language} code-block"><code class="language-${language}">${code}</code></pre>`;
+  };
+
+  return {
+    renderer: renderer,
+    gfm: true,
+    breaks: false,
+    pedantic: false,
+    smartLists: true,
+    smartypants: false,
+  };
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +45,13 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     HighlightModule,
     HttpClientModule,
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      markedOptions: {
+        provide: MarkedOptions,
+        useFactory: markedOptionsFactory,
+      },
+    }),
   ],
   providers: [
     {
