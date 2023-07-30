@@ -61,9 +61,25 @@ figure {
   height: 100%;
 }
 
+// Control the styling of elements inside the parsed markdown content
 .markdown-content {
   li {
     margin-block: 1rem;
     font-size: 1rem;
+  }
+
+  img {
+    width: 100%;
+    box-shadow: 0px 0px 10px 5px #dde;
+    border-radius: 5px;
+  }
+
+  a {
+    color: grey;
+  }
+
+  h2,
+  h3 {
+    margin-top: 2rem;
   }
 }

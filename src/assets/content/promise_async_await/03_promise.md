@@ -223,18 +223,20 @@ One possible solution for this problem is:
 
 ```typescript
 function doAsync(value) {
-	const promise = new Promise(function(resolve, reject) {
-		setTimeout(() => resolve(value * 2), 1000);
-	});
+  const promise = new Promise(function (resolve, reject) {
+    setTimeout(() => resolve(value * 2), 1000);
+  });
+
+  return promise;
 }
 
-doAsync(1).then(result1 => {
-	doAsync(result1).then(result2 => {
-		doAsync(result2).then(result3 => {
-			console.log("Result after 3 steps: " + result3);  // Print 8 to the console
-		}
-	}
-}
+doAsync(1).then((result1) => {
+  doAsync(result1).then((result2) => {
+    doAsync(result2).then((result3) => {
+      console.log("Result after 3 steps: " + result3); // Print 8 to the console
+    });
+  });
+});
 ```
 
 However, you can easily see that we still have that same problem of using callback. Our code still grows to the right, and the pyramid of doom still exists. So, what’s better about Promise then? It doesn’t seem to solve our original problem.
@@ -243,15 +245,17 @@ This is where promise chaining comes into play. With promise chaining, we can wr
 
 ```typescript
 function doAsync(value) {
-	const promise = new Promise(function(resolve, reject) {
-		setTimeout(() => resolve(value * 2), 1000);
-	});
+  const promise = new Promise(function (resolve, reject) {
+    setTimeout(() => resolve(value * 2), 1000);
+  });
+
+  return promise;
 }
 
 doAsync(1)
-.then(result1 => return doAsync(result1))
-.then(result2 => return doAsync(result2)) // This won't execute until doAsync(result1) resolves
-.then(result3 => return doAsync(result3)); // This won't execute until doAsync(result2) resolves
+  .then((result1) => doAsync(result1))
+  .then((result2) => doAsync(result2)) // This won't execute until doAsync(result1) resolves
+  .then((result) => console.log("Result after 3 steps: " + result));
 ```
 
 In the above example, in each callback passed to `.then()`, we call doAsync() once and return a Promise object that will resolve after 1 second. One good thing with using .then() is that, the callback passed to the later then() method calls will wait until the Promise returned by the previous call resolved to execute. Therefore, we can assure that each step is performed at the right moment, in the right order.
