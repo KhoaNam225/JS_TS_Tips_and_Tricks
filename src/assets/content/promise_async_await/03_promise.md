@@ -1,8 +1,8 @@
-## Promise
+# Promise
 
 Promise was introduced in JavaScript ES6 (2015) as a new way to write clean async JavaScript code. Before diving into the technical aspect of Promise, let’s consider a real world example to understand how Promise works in general.
 
-### 1. What is Promise?
+## 1. What is Promise?
 
 Oliver and Nam are staffs in an ice-cream shop. Nam’s main responsibility is preparing ice-cream in the back kitchen while Oliver managing the cones and taking orders from customers. When an order is placed, the following steps are performed to serve that order:
 
@@ -23,7 +23,7 @@ Promise in JavaScript works in a similar way. It performs some asynchronous task
 
 The next section will discuss the Promise object more in-depth.
 
-### 2. The Promise object
+## 2. The Promise object
 
 To create a Promise, we use the following syntax:
 
@@ -77,13 +77,13 @@ A Promise object has 2 internal properties to indicate its states.
 
 From the diagram above, we can easily see that calling `resolve()` will bring a Promise’s state to `fulfilled` and `reject()` will bring its state to `rejected`. When a Promise is either fulfilled or rejected, it is settled.
 
-### 3. `.then()`, `.catch()` and `.finally()`
+## 3. `.then()`, `.catch()` and `.finally()`
 
 When initialising a Promise object, we give it a function that perform the async task to produce some results - the executor. Once the result is ready, we need a way to use that result, in other words, we need to consume it.
 
 This can be done by using `.then()`, `.catch()` and `.finally()` methods of the Promise object.
 
-#### a. `.then()`
+### a. `.then()`
 
 This method is the most important and popular method that is used from the Promise class.
 
@@ -142,7 +142,7 @@ promise.then(
 );
 ```
 
-#### b. `.catch()`
+### b. `.catch()`
 
 If we only care about handling the error of a Promise, we can use `.then()` but passing null to the first parameter, like this:
 
@@ -190,7 +190,7 @@ In the first example, `f2` is used to handle errors thrown from the executor (th
 
 On the other hand, in the second example, `f2` can handle both errors in the executor and `f1` function, which makes it even more powerful.
 
-#### c. `.finally()`
+### c. `.finally()`
 
 From the previous section, we can see some similarities between the `.catch()` method of Promise class with the `catch () { //... }` in a `try { } catch { }` block.
 
@@ -215,7 +215,7 @@ promise
 
 The callback passed to promise doesn’t take any arguments because we don’t know if the Promise object is resolved or rejected. We only want to clean up everything.
 
-#### d. Promise chaining
+### d. Promise chaining
 
 The examples for Promise so far only have one `.then()` method call. What if our task consists of many steps, each step must be performed one after another in order (just like the example task in the callback section above, which has 3 smaller steps)?
 

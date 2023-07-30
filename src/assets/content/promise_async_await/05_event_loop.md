@@ -1,4 +1,4 @@
-### The Call Stack, Callback Queue, Event Loop
+# The Call Stack, Callback Queue, Event Loop
 
 Let’s consider the following piece of code, which contains a Promise that immediately resolves after it is created. Can you guess what the output would be?
 

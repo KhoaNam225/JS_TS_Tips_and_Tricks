@@ -1,4 +1,4 @@
-## Synchronous vs Asynchronous Execution?
+# Synchronous vs Asynchronous Execution?
 
 Let’s consider this example:
 

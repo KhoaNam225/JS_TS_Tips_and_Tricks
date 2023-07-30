@@ -1,8 +1,8 @@
-## Async/Await
+# Async/Await
 
 As already demonstrated, using Promise along with `.then(), .catch(), .finally()` already reduces a lot of complexity when implementing asynchronous operations. However, to further improve the readability of asynchronous code, a new syntax has been introduced in Javascript in 2017, which uses 2 keywords: `async` and `await`.
 
-### 1. Async
+## 1. Async
 
 The `async` keyword is placed before a function signature. When placing before a function declaration, this means only one thing: The function after `async` will always return a Promise. For example, let’s consider a function that returns a random number in a Promise, without async keyword, we can write that function like this:
 
@@ -31,7 +31,7 @@ generateRandomNumber().then((result) => console.log(`Random number: ${result}`))
 
 When placing `async` in front of the function, the result of that function will automatically be wrapped inside a Promise object. We can use the Promise object returned in the same way introduced in previous sections.
 
-### 2. Await
+## 2. Await
 
 While the `async` keyword makes the code to create a Promise object easier to read, the `await` keyword does the same thing but for the code that consumes the Promise.
 

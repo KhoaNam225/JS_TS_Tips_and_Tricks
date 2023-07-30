@@ -1,6 +1,6 @@
-## Asynchronous programming in JavaScript
+# Asynchronous programming in JavaScript
 
-### 1. Callback
+## 1. Callback
 
 Traditionally, JavaScript supports asynchronous programming mainly via callbacks.
 
@@ -50,7 +50,7 @@ Finished with status 200
 
 Again, in this example, we use a callback to ‘react’ to the response because we don’t know when it would come.
 
-### 2. The downside of callbacks
+## 2. The downside of callbacks
 
 From the examples above, it can be easily seen that reading and understanding code that has a lot of callbacks is not easy since the order of execution does not follow the same order that we write code (i.e. from top to bottom). Moreover, abusing callbacks can make our code degrade and become messy really quickly. Let’s consider a simple example to understand why that’s the case:
 
