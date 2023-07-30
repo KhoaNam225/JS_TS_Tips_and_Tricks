@@ -24,7 +24,7 @@ The reason for this “strange” behaviour lies in the way JavaScript executes 
 
 Let’s look at the following image:
 
-![async_js.png](Promise%20Async%20Await%20in%20JavaScript%20dc78927e1f5445f6b24bef8cfb3995bc/async_js.png)
+![async_js.png](assets/content/promise_async_await/async_js.png)
 
 This image demonstrates different parts of the browser to help it run our JavaScript code, including:
 

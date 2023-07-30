@@ -11,7 +11,7 @@ Oliver and Nam are staffs in an ice-cream shop. Nam’s main responsibility is p
 3. Put ice-cream on the cone
 4. Serve to customer
 
-![ice-cream-shop.png](Promise%20Async%20Await%20in%20JavaScript%20dc78927e1f5445f6b24bef8cfb3995bc/ice-cream-shop.png)
+![ice-cream-shop.png](assets/content/promise_async_await/ice-cream-shop.png)
 
 However, since preparing ice-cream is Nam’s responsibility and it would taking some time to prepare some, Oliver doesn’t know when there would be ice-cream ready to be put on the cone. He cannot take an empty cone to the back kitchen and wait there until Nam finishes preparing ice-cream because it might take forever (Nam is pretty slow sometimes) and the counter cannot be left unoccupied.
 
@@ -71,7 +71,7 @@ A Promise object has 2 internal properties to indicate its states.
 
 `result`: Contains the result of the async task that needs to be returned.
 
-![promise-resolve-reject.svg](Promise%20Async%20Await%20in%20JavaScript%20dc78927e1f5445f6b24bef8cfb3995bc/promise-resolve-reject.svg)
+![promise-resolve-reject.svg](assets/content/promise_async_await/promise-resolve-reject.svg)
 
 (Source: [https://javascript.info/article/promise-basics/promise-resolve-reject.svg](https://javascript.info/article/promise-basics/promise-resolve-reject.svg))
 
